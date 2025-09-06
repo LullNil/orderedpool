@@ -1,7 +1,6 @@
 # orderedpool
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/LullNil/orderedpool.svg)](https://pkg.go.dev/github.com/LullNil/orderedpool)
-[![Go Report Card](https://goreportcard.com/badge/github.com/LullNil/orderedpool)](https://goreportcard.com/report/github.com/LullNil/orderedpool)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **orderedpool** is a generic Go library for parallel data processing with order preservation, context support, timeouts, and early termination.
