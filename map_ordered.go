@@ -47,7 +47,7 @@ func MapOrdered[T any, R any](
 	go func() {
 		defer close(output)
 
-		// каналы для задач и результатов
+		// channels for tasks and results
 		taskChan := make(chan indexedTask[T], opt.MaxInFlight)
 		resultChan := make(chan indexedResult[R], opt.MaxInFlight)
 
@@ -58,13 +58,13 @@ func MapOrdered[T any, R any](
 			go worker(ctx, fn, opt, taskChan, resultChan, &wg)
 		}
 
-		// goroutine для закрытия каналов
+		// goroutine for closing channels
 		go func() {
 			wg.Wait()
 			close(resultChan)
 		}()
 
-		// главный цикл
+		// goroutine for sending tasks
 		go func() {
 			defer close(taskChan)
 
@@ -79,7 +79,7 @@ func MapOrdered[T any, R any](
 			}
 		}()
 
-		// буфер для упорядочивания
+		// buffer for ordering
 		buffer := make(map[int]Result[R])
 		nextIndex := 0
 		successCount := 0
@@ -87,7 +87,7 @@ func MapOrdered[T any, R any](
 		for res := range resultChan {
 			buffer[res.index] = res.res
 
-			// публикация в порядке
+			// publication in order
 			for {
 				if item, ok := buffer[nextIndex]; ok {
 					delete(buffer, nextIndex)
@@ -132,7 +132,7 @@ func worker[T any, R any](
 				return
 			}
 
-			// контекст задачи
+			// task context
 			taskCtx := ctx
 			var cancel context.CancelFunc
 			if opt.TaskTimeout > 0 {
