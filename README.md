@@ -8,14 +8,14 @@
 
 ## 🌟 Features
 
-- ✅ **Order preservation** - Results are returned in the same order as input data
-- ✅ **Limited worker pool** - Control over parallelism
-- ✅ **Backpressure support** - Buffer limits via `MaxInFlight`
-- ✅ **Early termination** - Stop after N successful results
-- ✅ **Per-task timeouts** - Individual `context.WithTimeout` for each task
-- ✅ **Panic handling** - Either as error or panic propagation
-- ✅ **No goroutine leaks** - Proper cleanup on context cancellation
-- ✅ **Thread-safe and race-free** - Passes `go test -race`
+- **Order preservation** - Results are returned in the same order as input data
+- **Limited worker pool** - Control over parallelism
+- **Backpressure support** - Buffer limits via `MaxInFlight`
+- **Early termination** - Stop after N successful results
+- **Per-task timeouts** - Individual `context.WithTimeout` for each task
+- **Panic handling** - Either as error or panic propagation
+- **No goroutine leaks** - Proper cleanup on context cancellation
+- **Thread-safe and race-free** - Passes `go test -race`
 
 ## 📦 Installation
 
@@ -256,10 +256,6 @@ go tool cover -html=coverage.out
 2. **Blocking Input**: If input channel is unbuffered, it may block the producer
 3. **Panic Propagation**: When `PanicAsError=false`, panics may not preserve exact stack trace
 
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -295,4 +291,8 @@ go tool cover -html=coverage.out
 - **Image/Video Processing**: Parallel processing with resource limits
 - **Machine Learning**: Batch inference with order preservation
 
-Made with ❤️ for the Go community
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details
+
+**Made with ❤️ for the Go community**
