@@ -6,7 +6,7 @@
 
 **orderedpool** is a generic Go library for parallel data processing with order preservation, context support, timeouts, and early termination.
 
-## 🌟 Features
+## Features
 
 - **Order preservation** - Results are returned in the same order as input data
 - **Limited worker pool** - Control over parallelism
@@ -17,13 +17,13 @@
 - **No goroutine leaks** - Proper cleanup on context cancellation
 - **Thread-safe and race-free** - Passes `go test -race`
 
-## 📦 Installation
+## Installation
 
 ```bash
 go get github.com/LullNil/orderedpool
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ```go
 package main
@@ -66,7 +66,7 @@ func main() {
 }
 ```
 
-## 📋 API
+## API
 
 ### `MapOrdered[T any, R any]`
 
@@ -183,7 +183,7 @@ results := orderedpool.MapOrdered(ctx, userIDs, func(ctx context.Context, id int
 })
 ```
 
-## 🔧 Advanced Features
+## Advanced Features
 
 ### Context Cancellation
 
@@ -226,7 +226,7 @@ results := orderedpool.MapOrdered(ctx, infiniteStream, func(ctx context.Context,
 })
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -243,20 +243,20 @@ go test -coverprofile=coverage.out ./...
 go tool cover -html=coverage.out
 ```
 
-## 📊 Performance Characteristics
+## Performance Characteristics
 
 - **Time Complexity**: O(n) where n is the number of input elements
 - **Space Complexity**: O(MaxInFlight) for internal buffering
 - **Parallelism**: Up to `Workers` tasks processed simultaneously
 - **Order Preservation**: Guaranteed through indexed buffering
 
-## 🐛 Known Limitations
+## Known Limitations
 
 1. **Memory Usage**: Buffer grows up to `MaxInFlight` elements for order preservation
 2. **Blocking Input**: If input channel is unbuffered, it may block the producer
 3. **Panic Propagation**: When `PanicAsError=false`, panics may not preserve exact stack trace
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -282,7 +282,7 @@ go test -coverprofile=coverage.out ./...
 go tool cover -html=coverage.out
 ```
 
-## 🎯 Use Cases
+## Use Cases
 
 - **Web Scraping**: Parallel HTTP requests with order preservation
 - **Data Processing Pipelines**: ETL processes with controlled parallelism
@@ -291,8 +291,6 @@ go tool cover -html=coverage.out
 - **Image/Video Processing**: Parallel processing with resource limits
 - **Machine Learning**: Batch inference with order preservation
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE) file for details
-
-**Made with ❤️ for the Go community**
