@@ -106,7 +106,7 @@ type Result[R any] struct {
 
 Result wrapper containing either a value or an error.
 
-## 🛠️ Usage Examples
+## Usage Examples
 
 ### 1. Parallel HTTP Requests
 
